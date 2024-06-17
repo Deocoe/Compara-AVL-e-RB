@@ -29,7 +29,7 @@ void testar_busca_rb(ArvoreRB *arvore, int *chaves, int n) {
 }
 
 int main() {
-    int N = 100000; // Número de chaves para teste
+    int N = 10000; // Número de chaves para teste
     int M = 1000; // Número de buscas aleatórias para teste
 
     ArvoreRB *arvore = criar_arvore_rb();
@@ -47,21 +47,21 @@ int main() {
     inicio = clock();
     testar_insercao_rb(arvore, chaves, N);
     fim = clock();
-    printf("Tempo de inserção: %.2f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
+    printf("Tempo de inserção: %.8f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
     printf("Rotações durante inserção: %d\n", arvore->contador_rotacoes);
 
     // Testar remoção
     inicio = clock();
     testar_remocao_rb(arvore, chaves, N);
     fim = clock();
-    printf("Tempo de remoção: %.2f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
+    printf("Tempo de remoção: %.8f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
     printf("Rotações durante remoção: %d\n", arvore->contador_rotacoes);
 
     // Testar busca
     inicio = clock();
     testar_busca_rb(arvore, chaves_aleatorias, M);
     fim = clock();
-    printf("Tempo de busca: %.2f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
+    printf("Tempo de busca: %.8f segundos\n", (double)(fim - inicio) / CLOCKS_PER_SEC);
 
     free(chaves);
     free(chaves_aleatorias);
